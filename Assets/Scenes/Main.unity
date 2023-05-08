@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 1330516694}
   - component: {fileID: 1330516693}
   - component: {fileID: 1330516692}
+  - component: {fileID: 1330516696}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -337,6 +338,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330516696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330516691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8867ed433c40f4b93773d30cdbe5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.000001
 --- !u!1 &1336738660
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374938459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.63, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -481,3 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveScript: {fileID: 1374938461}
   speed: 10
+  boundaries:
+    xMin: -8.5
+    xMax: 8.5
+    yMin: -4.8
+    yMax: 4.8
