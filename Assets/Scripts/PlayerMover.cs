@@ -15,14 +15,14 @@ public class PlayerMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        moveScript.speed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        moveScript.DoMove(direction, speed);
+        moveScript.direction = direction;
 
         float xPos = Mathf.Clamp(transform.position.x, boundaries.xMin, boundaries.xMax);
         float yPos = Mathf.Clamp(transform.position.y, boundaries.yMin, boundaries.yMax);

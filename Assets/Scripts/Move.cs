@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public void DoMove(Vector3 direction, float speed)
+    public float speed;
+    public Vector3 direction;
+    public void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
     }
