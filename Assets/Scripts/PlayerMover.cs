@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,13 +17,17 @@ public class PlayerMover : MonoBehaviour
     void Start()
     {
         moveScript.speed = speed;
+        InputProvider.OnHasMove += HasMove;
+    }
+
+    public void HasMove(Vector3 direction)
+    {
+        moveScript.direction = direction;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        moveScript.direction = direction;
 
         float xPos = Mathf.Clamp(transform.position.x, boundaries.xMin, boundaries.xMax);
         float yPos = Mathf.Clamp(transform.position.y, boundaries.yMin, boundaries.yMax);

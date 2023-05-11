@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        InputKeyListener.inputKeyListener.onHasShoot += HasShoot;
+        InputProvider.OnHasShoot += HasShoot;
     }
 
     // Update is called once per frame

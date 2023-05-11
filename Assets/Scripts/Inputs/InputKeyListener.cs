@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputKeyListener : MonoBehaviour, IShootable
+public class InputKeyListener : MonoBehaviour, IShootable, IMovable
 {
 
-    //Singleton
-    public static InputKeyListener inputKeyListener;
+    ////Singleton
+    //public static InputKeyListener inputKeyListener;
 
-    public delegate void HasShoot();
-    public event HasShoot onHasShoot;
+    //public delegate void HasShoot();
+    //public event HasShoot onHasShoot;
 
-    private void Awake()
-    {
-        inputKeyListener = this;
-    }
+    //private void Awake()
+    //{
+    //    inputKeyListener = this;
+    //}
 
     public void Shoot()
     {
-        onHasShoot();
+        InputProvider.Shoot();
+    }
+
+    public void Move(Vector3 direction)
+    {
+        InputProvider.Move(direction);
     }
 
     // Update is called once per frame
@@ -29,5 +34,7 @@ public class InputKeyListener : MonoBehaviour, IShootable
             Debug.Log("Shoot");
             Shoot();
         }
+
+        Move(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0));
     }
 }
