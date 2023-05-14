@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5249028000718965295}
   - component: {fileID: 7632203716559927724}
   - component: {fileID: 6060723690075296254}
+  - component: {fileID: -5624236701041194835}
   m_Layer: 0
   m_Name: RedEnemy
   m_TagString: Untagged
@@ -166,3 +167,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -5624236701041194835}
+        m_TargetAssemblyTypeName: DoInstantiate, Assembly-CSharp
+        m_MethodName: LetsInstantiate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-5624236701041194835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5249028000718965294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6851e05d15b0761478f5eb932aea0015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
