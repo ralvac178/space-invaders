@@ -31,4 +31,9 @@ public class TriggerActions : MonoBehaviour
             triggerObject.SetActive(false);
         }
     }
+
+    public void DestroyItself()
+    {
+        Destroy(this.gameObject);
+    }
 }
