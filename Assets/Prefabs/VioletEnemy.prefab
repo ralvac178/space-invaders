@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7925111686598955330}
   - component: {fileID: -5271250575442975504}
   - component: {fileID: -2416478321012651018}
+  - component: {fileID: -5426010402404297610}
   m_Layer: 6
   m_Name: VioletEnemy
   m_TagString: Untagged
@@ -245,3 +246,16 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-5426010402404297610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698279607799591070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282a0a304e6efe643886637bfa5c4402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyConfig: {fileID: 11400000, guid: 4d7165c00b1d74d439d7965484fd4149, type: 2}

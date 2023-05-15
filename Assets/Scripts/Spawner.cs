@@ -9,6 +9,9 @@ public class Spawner : MonoBehaviour
     public float timeToStart;
     public float cadenceTime;
     public int amount;
+
+    [SerializeField] private List<EnemyConfig> enemyConfigs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,13 @@ public class Spawner : MonoBehaviour
 
     public void SpawnObject(Vector3 position)
     {
-        Instantiate(prefab, position, prefab.transform.rotation);
+        var enemyInstance = Instantiate(prefab, position, prefab.transform.rotation);
+        var enemyControllerComponent = enemyInstance.GetComponent<EnemyController>();
+        if (enemyControllerComponent != null)
+        {
+            int randomEnemyConfig = Random.Range(0, enemyConfigs.Count);
+            enemyControllerComponent.enemyConfig = enemyConfigs[randomEnemyConfig];
+        }
     }
     
 }

@@ -377,6 +377,9 @@ MonoBehaviour:
   timeToStart: 1
   cadenceTime: 0.5
   amount: 100
+  enemyConfigs:
+  - {fileID: 11400000, guid: 479b52307908ad8458a9fb48d4d790a2, type: 2}
+  - {fileID: 11400000, guid: 4d7165c00b1d74d439d7965484fd4149, type: 2}
 --- !u!1 &496220992
 GameObject:
   m_ObjectHideFlags: 0
