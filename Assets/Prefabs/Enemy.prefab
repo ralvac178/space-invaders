@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: -2416478321012651018}
   - component: {fileID: -5426010402404297610}
   m_Layer: 6
-  m_Name: VioletEnemy
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,3 +259,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 4d7165c00b1d74d439d7965484fd4149, type: 2}
+  spriteRenderer: {fileID: 1775562785437298379}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: HardEnemy
   m_EditorClassIdentifier: 
   speed: 3
+  sprite: {fileID: 21300000, guid: f680e5047c3880e4285d455c7e341a44, type: 3}
