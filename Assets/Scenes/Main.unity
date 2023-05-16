@@ -338,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 425560033}
   - component: {fileID: 425560034}
+  - component: {fileID: 425560035}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -367,7 +368,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425560032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dda0198810c1cd44097d5d945c590bc7, type: 3}
   m_Name: 
@@ -380,6 +381,24 @@ MonoBehaviour:
   enemyConfigs:
   - {fileID: 11400000, guid: 479b52307908ad8458a9fb48d4d790a2, type: 2}
   - {fileID: 11400000, guid: 4d7165c00b1d74d439d7965484fd4149, type: 2}
+--- !u!114 &425560035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425560032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2953ddb622d1dc4e8e263ac964eb7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavesConfig: {fileID: 11400000, guid: aae64370b88aa7f4b9260c6f408ee618, type: 2}
+  enemyConfigs:
+  - {fileID: 11400000, guid: 479b52307908ad8458a9fb48d4d790a2, type: 2}
+  - {fileID: 11400000, guid: 4d7165c00b1d74d439d7965484fd4149, type: 2}
+  spawnCadence: 2
+  initialTime: 1
 --- !u!1 &496220992
 GameObject:
   m_ObjectHideFlags: 0
