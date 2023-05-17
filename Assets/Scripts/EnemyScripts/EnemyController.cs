@@ -33,6 +33,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void OnDie()
+    {
+        GameManager.instance.UpdateScore(enemyConfig.scoreWhenIsDestroyed);
+    }
+
     public IEnumerator EnemyShooting()
     {
         yield return new WaitForSeconds(enemyConfig.shootInitialWaitTime);

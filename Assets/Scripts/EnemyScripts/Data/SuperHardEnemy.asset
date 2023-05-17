@@ -17,3 +17,4 @@ MonoBehaviour:
   isShooter: 1
   shootCadence: 1
   shootInitialWaitTime: 1
+  scoreWhenIsDestroyed: 100
