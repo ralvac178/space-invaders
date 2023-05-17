@@ -34,15 +34,16 @@ public class SpawnController : MonoBehaviour
                         enemy.spawnReferencePosition.z);
                 }
 
-                SpawnObject(enemy.enemyController.gameObject, enemyPosition);
+                SpawnObject(enemy.enemyController, enemy.enemyConfig, enemyPosition);
                 yield return new WaitForSeconds(spawnCadence);
             }
             yield return new WaitForSeconds(wave.cadence);
         }
     }
 
-    public void SpawnObject(GameObject prefab, Vector3 position)
+    public void SpawnObject(EnemyController prefab, EnemyConfig config, Vector3 position)
     {
-        Instantiate(prefab, position, prefab.transform.rotation);
+        var instance = Instantiate(prefab, position, prefab.transform.rotation);
+        instance.enemyConfig = config;
     }
 }

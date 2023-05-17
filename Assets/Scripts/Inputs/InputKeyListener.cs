@@ -31,7 +31,6 @@ public class InputKeyListener : MonoBehaviour, IShootable, IMovable
     {
         if (Input.GetButtonDown("Shoot"))
         {
-            Debug.Log("Shoot");
             Shoot();
         }
 

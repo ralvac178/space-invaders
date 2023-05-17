@@ -14,15 +14,6 @@ public class TriggerActions : MonoBehaviour
         action.Invoke();
     }
 
-    public void DestroyObject()
-    {
-        bool canDestroy = triggerObject != null ? true : false;
-        if (canDestroy)
-        {
-            Destroy(triggerObject);
-        }
-    }
-
     public void SetInvisibleObject()
     {
         bool canDestroy = triggerObject != null ? true : false;
@@ -35,5 +26,10 @@ public class TriggerActions : MonoBehaviour
     public void DestroyItself()
     {
         Destroy(this.gameObject);
+    }
+
+    public void DestroyCollider()
+    {
+        Destroy(triggerObject.gameObject);
     }
 }

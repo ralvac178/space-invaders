@@ -7,4 +7,7 @@ public class EnemyConfig : ScriptableObject
 {
     public float speed;
     public Sprite sprite;
+    public bool isShooter;
+    public float shootCadence;
+    public float shootInitialWaitTime;
 }

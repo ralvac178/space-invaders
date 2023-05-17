@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class ShooterScript : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     // Start is called before the first frame update
     private void Start()
     {
-        InputProvider.OnHasShoot += HasShoot;
+        if (transform.parent.gameObject.transform.parent.gameObject.tag.Equals("Player"))
+        {
+            InputProvider.OnHasShoot += HasShoot;
+        }
     }
 
     // Update is called once per frame
-    void HasShoot()
+    public void HasShoot()
     {
         Instantiate(bullet, transform.position, Quaternion.identity);
+    }
+
+    private void OnDestroy()
+    {
+        InputProvider.OnHasShoot -= HasShoot;
     }
 }
