@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
 
     public void OnDie()
     {
-        GameManager.instance.UpdateScore(enemyConfig.scoreWhenIsDestroyed);
+        GameManager.instance.UpdateScoreAndPower(enemyConfig.scoreWhenIsDestroyed);
     }
 
     public IEnumerator EnemyShooting()

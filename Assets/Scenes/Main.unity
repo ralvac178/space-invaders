@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5748614628262477058, guid: 2025854a8a74b5e43b4b622ea6c3b4d5, type: 3}
+  playerController: {fileID: 1374938463}
 --- !u!1 &332456396
 GameObject:
   m_ObjectHideFlags: 0
@@ -10440,6 +10441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c4f08c504d7684c99dec9e1c73f52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1374938463}
 --- !u!1 &1374938459
 GameObject:
   m_ObjectHideFlags: 0
@@ -10451,6 +10453,7 @@ GameObject:
   - component: {fileID: 1374938460}
   - component: {fileID: 1374938462}
   - component: {fileID: 1374938461}
+  - component: {fileID: 1374938463}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10508,6 +10511,23 @@ MonoBehaviour:
     xMax: 8.5
     yMin: -4.8
     yMax: 4.8
+--- !u!114 &1374938463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374938459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf38c50b0b0b2b4e9ad1e6731b7a5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: 23202a50384f7934b824e1387f1da230, type: 2}
+  shooters:
+  - {fileID: 2111387501}
+  - {fileID: 117071928}
+  - {fileID: 1613233838}
 --- !u!1 &1521927285
 GameObject:
   m_ObjectHideFlags: 0
@@ -10585,6 +10605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5748614628262477058, guid: 2025854a8a74b5e43b4b622ea6c3b4d5, type: 3}
+  playerController: {fileID: 1374938463}
 --- !u!1 &1869789570
 GameObject:
   m_ObjectHideFlags: 0
@@ -10739,3 +10760,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5748614628262477058, guid: 2025854a8a74b5e43b4b622ea6c3b4d5, type: 3}
+  playerController: {fileID: 1374938463}

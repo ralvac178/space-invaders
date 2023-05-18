@@ -7,14 +7,17 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private int score;
 
+    [SerializeField] private PlayerController playerController;
+
     private void Awake()
     {
         instance = this;
     }
 
-    public void UpdateScore(int addScore)
+    public void UpdateScoreAndPower(int addScore)
     {
         score += addScore;
+        playerController.AddToPower(1);
         Debug.Log(score);
     }
 }

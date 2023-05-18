@@ -21,4 +21,4 @@ MonoBehaviour:
     spawnReferencePosition: {x: 0, y: 5.3, z: 0}
     useEspecifigPosition: 1
     enemyConfig: {fileID: 11400000, guid: 50061c3a31c547041a29f16b0aa7a86d, type: 2}
-  cadence: 0
+  cadence: 1
