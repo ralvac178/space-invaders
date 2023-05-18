@@ -44,4 +44,9 @@ public class PlayerController : MonoBehaviour
             InputProvider.OnHasShoot -= OnHasShoot;
         }
     }
+
+    public void OnPlayerDie()
+    {
+        GameManager.instance.PlayerDied();
+    }
 }

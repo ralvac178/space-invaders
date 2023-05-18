@@ -232,21 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf260e756b31694888e4cbacac41e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls: []
   alwaysActions:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -4986248100038412990}
-        m_TargetAssemblyTypeName: DoDestroy, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   unIgnoreActions:
     m_PersistentCalls:
       m_Calls:
@@ -274,8 +265,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -4986248100038412990}
+        m_TargetAssemblyTypeName: DoDestroy, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   tagsToIgnore:
   - BottomLimit
+  - Player
 --- !u!114 &-5426010402404297610
 MonoBehaviour:
   m_ObjectHideFlags: 0

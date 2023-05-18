@@ -20,4 +20,9 @@ public class GameManager : MonoBehaviour
         playerController.AddToPower(1);
         Debug.Log(score);
     }
+
+    public void PlayerDied()
+    {
+        Debug.Log("****** PLAYER DIED ******");
+    }
 }

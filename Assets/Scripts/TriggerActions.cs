@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class TriggerActions : MonoBehaviour
 {
-    [SerializeField] private UnityEvent action;
-    private GameObject triggerObject;
+    [SerializeField] protected UnityEvent action;
+    protected GameObject triggerObject;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         triggerObject = collision.gameObject;
         action.Invoke();
@@ -28,8 +28,11 @@ public class TriggerActions : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void DestroyCollider()
+    public virtual void DestroyCollider()
     {
-        Destroy(triggerObject.gameObject);
+        if (triggerObject != null)
+        {
+            Destroy(triggerObject.gameObject);
+        }       
     }
 }
