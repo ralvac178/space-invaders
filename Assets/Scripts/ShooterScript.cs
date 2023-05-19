@@ -6,9 +6,14 @@ public class ShooterScript : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
 
+    public bool isEnable = true;
+
     // Update is called once per frame
     public void HasShoot()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity);
+        if (isEnable)
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+        }       
     }
 }

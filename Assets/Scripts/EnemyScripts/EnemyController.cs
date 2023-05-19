@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
             moveComponent.speed = enemyConfig.speed;
         }
 
-        if (spriteRenderer.sprite != null)
+        if (enemyConfig.sprite != null && spriteRenderer != null)
         {
             spriteRenderer.sprite = enemyConfig.sprite;
         }
@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
                 StartCoroutine(nameof(EnemyShooting));
             }
         }
+
     }
 
     public void OnDie()

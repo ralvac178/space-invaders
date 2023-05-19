@@ -18,3 +18,4 @@ MonoBehaviour:
   shootCadence: 0
   shootInitialWaitTime: 0
   scoreWhenIsDestroyed: 50
+  health: 2
