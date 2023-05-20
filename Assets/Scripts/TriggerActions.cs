@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class TriggerActions : MonoBehaviour
 {
-    [SerializeField] protected UnityEvent action;
+    [SerializeField] private UnityEvent action;
     protected GameObject triggerObject;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)

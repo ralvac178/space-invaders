@@ -11,6 +11,11 @@ public class HealthController : MonoBehaviour
     public void OnDamage(int damageValue)
     {
         health -= damageValue;
+        Debug.Log(health);
+        if (health <= 0)
+        {
+            OnZeroHealth();
+        }
     }
 
     public void OnZeroHealth()

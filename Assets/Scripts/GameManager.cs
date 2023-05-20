@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     {
         score += addScore;
         playerController.AddToPower(1);
-        Debug.Log(score);
     }
 
     public void PlayerDied()

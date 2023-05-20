@@ -16,4 +16,9 @@ public class ShooterScript : MonoBehaviour
             Instantiate(bullet, transform.position, Quaternion.identity);
         }       
     }
+
+    public void EnableShoot(bool enableValue)
+    {
+        isEnable = enableValue;
+    }
 }
