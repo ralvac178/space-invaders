@@ -9,6 +9,7 @@ public class EnemyConfig : ScriptableObject
     public Sprite sprite;
     public bool isShooter;
     public float shootCadence;
+    public float shootCadenceTopLimit;
     public float shootInitialWaitTime;
     public int scoreWhenIsDestroyed;
 }
