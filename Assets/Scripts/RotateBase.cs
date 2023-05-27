@@ -9,6 +9,7 @@ public class RotateBase : MonoBehaviour
     public float speed;
     [SerializeField] private HealthController healthController;
     private float time;
+    [SerializeField] GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class RotateBase : MonoBehaviour
         methots.Add(3, "RotateRight");
 
         //StartCoroutine(FullRotate(1, 2,3));
-        StartCoroutine(MidRotate());
+        StartCoroutine(PersuitPlayer());
     }
 
     private void Update()
@@ -30,6 +31,42 @@ public class RotateBase : MonoBehaviour
         {
             speed = 60;
         }
+    }
+
+    public IEnumerator PersuitPlayer()
+    {
+        speed /= speed;
+        float startTime = 0;
+        int timeToRotation = Random.Range(3, 10);
+        
+        while (healthController.health > 0)
+        {
+            startTime += Time.deltaTime;
+            if (player!=null)
+            {
+                var targetPos = player.transform.position;
+                Vector3 direction = targetPos - transform.position;
+                direction.Normalize();
+                float z_rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, z_rot - 90);
+            }
+            else
+            {
+                break;
+            }
+            
+            yield return null;
+            if (startTime > timeToRotation)
+            {
+                if (Enumerable.Range(2, 3).Contains((int)transform.localEulerAngles.z))
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    break;
+                }
+            }
+        }
+
+        StopCoroutine(nameof(PersuitPlayer));
     }
 
     public IEnumerator FullRotation()
