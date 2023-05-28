@@ -10,14 +10,15 @@ public class RotateBase : MonoBehaviour
     [SerializeField] private HealthController healthController;
     private float time;
     [SerializeField] GameObject player;
+    private bool canCallCorroutine = true;
     // Start is called before the first frame update
     void Start()
     {
-        methots.Add(1, "FullRotate");
-        methots.Add(2, "RotateLeft");
-        methots.Add(3, "RotateRight");
+        methots.Add(0, "FullRotation");
+        methots.Add(1, "PersuitPlayer");
+        methots.Add(2, "MidRotate");
 
-        //StartCoroutine(FullRotate(1, 2,3));
+        //StartCoroutine(StartBaseMethots());
         StartCoroutine(PersuitPlayer());
     }
 
@@ -35,29 +36,31 @@ public class RotateBase : MonoBehaviour
 
     public IEnumerator PersuitPlayer()
     {
-        speed /= speed;
+        canCallCorroutine = false;
         float startTime = 0;
         int timeToRotation = Random.Range(3, 10);
+        bool stopPersuing = false;
         
         while (healthController.health > 0)
         {
             startTime += Time.deltaTime;
-            if (player!=null)
+            if (!stopPersuing)
             {
-                var targetPos = player.transform.position;
-                Vector3 direction = targetPos - transform.position;
-                direction.Normalize();
-                float z_rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0, 0, z_rot - 90);
+                if (player!=null)
+                {
+                    var targetPos = player.transform.position;
+                    Vector3 direction = targetPos - transform.position;
+                    direction.Normalize();
+                    float z_rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(0, 0, z_rot -90);
+                }
             }
-            else
-            {
-                break;
-            }
-            
+                     
             yield return null;
             if (startTime > timeToRotation)
             {
+                stopPersuing = true;
+                transform.Rotate(Vector3.forward * speed * Time.deltaTime);
                 if (Enumerable.Range(2, 3).Contains((int)transform.localEulerAngles.z))
                 {
                     transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -67,10 +70,12 @@ public class RotateBase : MonoBehaviour
         }
 
         StopCoroutine(nameof(PersuitPlayer));
+        canCallCorroutine = true;
     }
 
     public IEnumerator FullRotation()
     {
+        canCallCorroutine = false;
         int sign = Random.Range(0, 2);
         speed = sign == 0 ? speed : speed * -1;
         float startTime = 0;
@@ -90,13 +95,14 @@ public class RotateBase : MonoBehaviour
                 }
             }
         }
-
+       
         StopCoroutine(nameof(FullRotation));
+        canCallCorroutine = true;
     }
-
 
     public IEnumerator MidRotate()
     {
+        canCallCorroutine = false;
         bool back = false;
         int sign = Random.Range(0, 2);
         speed = sign == 0 ? speed : speed * -1;
@@ -143,8 +149,27 @@ public class RotateBase : MonoBehaviour
             }
             
         }
-
-        Debug.Log("Finish Coroutine");
+       
         StopCoroutine(nameof(MidRotate));
+        canCallCorroutine = true;
+    }
+
+    public IEnumerator StartBaseMethots()
+    {
+        while(healthController.health > 0)
+        {
+            int indexMethod = Random.Range(0, methots.Count);
+
+            if (canCallCorroutine)
+            {
+                yield return new WaitForSeconds(2);
+                StartCoroutine(methots[indexMethod]);
+                Debug.Log(methots[indexMethod]);
+            }
+
+            yield return null;
+        }
+
+        StopAllCoroutines();
     }
 }

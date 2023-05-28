@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyTriggerDo : TriggerActions
 {
     [SerializeField] private UnityEvent alwaysActions;
-    [SerializeField] private UnityEvent unIgnoreActions;
+    [SerializeField] public UnityEvent unIgnoreActions;
 
     [SerializeField] private List<string> tagsToIgnore;
     // Start is called before the first frame update
