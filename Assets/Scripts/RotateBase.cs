@@ -12,14 +12,14 @@ public class RotateBase : MonoBehaviour
     [SerializeField] GameObject player;
     private bool canCallCorroutine = true;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         methots.Add(0, "FullRotation");
         methots.Add(1, "PersuitPlayer");
         methots.Add(2, "MidRotate");
 
-        //StartCoroutine(StartBaseMethots());
-        StartCoroutine(PersuitPlayer());
+        StartCoroutine(StartBaseMethots());
+
     }
 
     private void Update()
@@ -52,7 +52,7 @@ public class RotateBase : MonoBehaviour
                     Vector3 direction = targetPos - transform.position;
                     direction.Normalize();
                     float z_rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Euler(0, 0, z_rot -90);
+                    transform.rotation = Quaternion.Euler(0, 0, z_rot - 90);
                 }
             }
                      
