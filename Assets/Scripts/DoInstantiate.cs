@@ -5,8 +5,15 @@ using UnityEngine;
 public class DoInstantiate : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
+    private GameObject instanceBox;
+
+    private void Start()
+    {
+        instanceBox = GameObject.Find("Instances"); 
+    }
     public void LetsInstantiate()
     {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        GameObject instance = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
+        instance.transform.parent = instanceBox.gameObject.transform;
     }
 }

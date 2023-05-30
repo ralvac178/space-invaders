@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8bd9d613914ea42a36ac16d9bbc752, type: 3}
   m_Name: HardEnemy
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.5
   sprite: {fileID: 21300000, guid: f680e5047c3880e4285d455c7e341a44, type: 3}
   isShooter: 0
   shootCadence: 0
+  shootCadenceTopLimit: 0
   shootInitialWaitTime: 0
   scoreWhenIsDestroyed: 50
-  health: 2

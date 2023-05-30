@@ -7,12 +7,21 @@ public class DoDestroy : MonoBehaviour
     //private GameObject triggerObject;
     public void DestroyObject()
     {
-        //bool canDestroy = triggerObject != null ? true : false;
-        //if (canDestroy)
-        //{
-        //    Destroy(triggerObject);
-        //}
+        if (transform.tag.Equals("Boss"))
+        {
+            StartCoroutine(Wait());
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+    }
 
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.45f);
         Destroy(gameObject);
+        StopCoroutine(Wait());
     }
 }

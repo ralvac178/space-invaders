@@ -8,6 +8,7 @@ public class HorizontalMovement : MonoBehaviour
     private bool dir = true;
     private bool beginHorMovement = false;
     [SerializeField] private Animator enemyAnimator;
+    [SerializeField] private HealthController healthController;
 
     // Update is called once per frame
     void Update()
@@ -21,7 +22,7 @@ public class HorizontalMovement : MonoBehaviour
 
     public IEnumerator Translation()
     {
-        while(true)
+        while(healthController.health > 0)
         {
             if (dir)
             {
@@ -53,6 +54,9 @@ public class HorizontalMovement : MonoBehaviour
 
             yield return null;
         }
+
+        move.speed = 0;
+        StopAllCoroutines();
         
     }
 

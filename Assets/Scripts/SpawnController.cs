@@ -7,6 +7,7 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private List<EnemyWaveConfig> wavesConfigs;
     public float spawnCadence;
     public float initialTime;
+    [SerializeField] private GameObject enemyBoss;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,9 @@ public class SpawnController : MonoBehaviour
             }
             yield return new WaitForSeconds(wave.cadence);
         }
+
+        yield return new WaitForSeconds(7);
+        Instantiate(enemyBoss);
     }
 
     public void SpawnObject(EnemyController prefab, EnemyConfig config, Vector3 position)

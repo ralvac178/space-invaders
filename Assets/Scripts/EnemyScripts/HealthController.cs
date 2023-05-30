@@ -12,7 +12,7 @@ public class HealthController : MonoBehaviour
     {
         health -= damageValue;
         Debug.Log(health);
-        if (health <= 0)
+        if (health == 0)
         {
             OnZeroHealth();
         }
