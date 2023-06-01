@@ -24,4 +24,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("****** PLAYER DIED ******");
     }
+
+    public void OnPlayerPickUp(PickupController pickup)
+    {
+        Debug.Log("Pickup taken");
+    }
 }

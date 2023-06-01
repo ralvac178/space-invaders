@@ -16,6 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 278b61a9028b9194ba3d4eeadb00f4fb, type: 3}
   isShooter: 0
   shootCadence: 0
+  shootCadenceTopLimit: 0
   shootInitialWaitTime: 0
   scoreWhenIsDestroyed: 25
-  health: 1
+  pickUpChance: 0.2

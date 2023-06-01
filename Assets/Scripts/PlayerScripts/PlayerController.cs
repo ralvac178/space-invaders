@@ -49,4 +49,14 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.PlayerDied();
     }
+
+    public void OnPlayerPickUp()
+    {
+
+    }
+
+    public void OnTriggerEnterDo()
+    {
+
+    }
 }

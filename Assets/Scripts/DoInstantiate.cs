@@ -14,6 +14,10 @@ public class DoInstantiate : MonoBehaviour
     public void LetsInstantiate()
     {
         GameObject instance = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
-        instance.transform.parent = instanceBox.gameObject.transform;
+        if (instanceBox!=null)
+        {
+            instance.transform.parent = instanceBox.gameObject.transform;
+        }
+        
     }
 }

@@ -12,4 +12,10 @@ public class EnemyConfig : ScriptableObject
     public float shootCadenceTopLimit;
     public float shootInitialWaitTime;
     public int scoreWhenIsDestroyed;
+    [Range(0, 1f)] public float pickUpChance;
+
+    public bool ShouldTroughPickUp()
+    {
+        return Dice.IsChanceSucces(pickUpChance);
+    }
 }

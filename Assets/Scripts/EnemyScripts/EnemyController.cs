@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     private Move moveComponent;
     [HideInInspector] public EnemyConfig enemyConfig;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private DoInstantiate instantiator;
 
     private ShooterScript[] shooters;
     // Start is called before the first frame update
@@ -36,6 +37,10 @@ public class EnemyController : MonoBehaviour
 
     public void OnDie()
     {
+        if (enemyConfig != null && enemyConfig.ShouldTroughPickUp() && instantiator != null)
+        {
+            instantiator.LetsInstantiate();
+        }
         GameManager.instance.UpdateScoreAndPower(enemyConfig.scoreWhenIsDestroyed);
     }
 
