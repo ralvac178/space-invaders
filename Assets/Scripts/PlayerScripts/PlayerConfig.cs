@@ -9,7 +9,7 @@ public class PlayerConfig : ScriptableObject
     [Serializable]
     public class PowerConfig
     {
-        public int powerValue;
+        //public int powerValue;
         public int cannonAmount;
     }
 
@@ -17,14 +17,19 @@ public class PlayerConfig : ScriptableObject
 
     public PowerConfig GetPowerConfig(int powerValue)
     {
-        foreach (var config in powerConfigs)
+        //foreach (var config in powerConfigs)
+        //{
+        //    if (config.powerValue >= powerValue)
+        //    {
+        //        return config;
+        //    }
+        //}
+
+        if (powerValue % 15 == 0)
         {
-            if (config.powerValue >= powerValue)
-            {
-                return config;
-            }
+            powerConfigs.Reverse();
         }
 
-        return powerConfigs[powerConfigs.Count - 1];
+        return powerConfigs[0];
     }
 }

@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 4101917414810696731}
   - component: {fileID: 9117804735563939803}
   - component: {fileID: 6272398387510653527}
+  - component: {fileID: 1733874576922243662}
   m_Layer: 9
   m_Name: PickUp
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,6 +197,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a8698af0024ef4896bfe5df30d4f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupConfig: {fileID: 11400000, guid: 347bb613a39006e4498fe5631a2f10b5, type: 2}
+--- !u!58 &1733874576922243662
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378296629900528688}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0072345734, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5072346
 --- !u!1 &6378296630311253032
 GameObject:
   m_ObjectHideFlags: 0

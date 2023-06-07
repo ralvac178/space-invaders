@@ -28,5 +28,6 @@ public class GameManager : MonoBehaviour
     public void OnPlayerPickUp(PickupController pickup)
     {
         Debug.Log("Pickup taken");
+        playerController.OnPlayerPickUp(pickup.pickupConfig.type);
     }
 }

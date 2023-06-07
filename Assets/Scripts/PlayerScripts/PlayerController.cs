@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerConfig playerConfig;
-    [SerializeField] private List<ShooterScript> shooters;
+    [SerializeField] public List<ShooterScript> shooters;
+    [SerializeField] private SpecialControllers specialControllers;
 
     public int powerLevel;
     private int cannonUnlocked = 1;
@@ -50,13 +51,9 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.PlayerDied();
     }
 
-    public void OnPlayerPickUp()
+    public void OnPlayerPickUp(PickupType pickupType)
     {
-
-    }
-
-    public void OnTriggerEnterDo()
-    {
-
+        shooters.Reverse();
+        specialControllers.OnPlayerPickUp(pickupType);     
     }
 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 829969850748988219}
   - component: {fileID: 7379294211425812446}
   - component: {fileID: 8413275968746153934}
-  - component: {fileID: -7064018100274997023}
   - component: {fileID: 5192467702155907208}
   - component: {fileID: 4593910044159763498}
+  - component: {fileID: 194633974696284622}
   m_Layer: 3
   m_Name: PlayerLasser
   m_TagString: Untagged
@@ -75,45 +75,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-7064018100274997023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5748614628262477058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f56f946bd8b68418474cd8f590b626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -7064018100274997023}
-        m_TargetAssemblyTypeName: TriggerActions, Assembly-CSharp
-        m_MethodName: DestroyItself
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5192467702155907208}
-        m_TargetAssemblyTypeName: DoInstantiate, Assembly-CSharp
-        m_MethodName: LetsInstantiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &5192467702155907208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +104,53 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0033285618, y: -0.0033285916}
   m_Size: {x: 0.18711466, y: 0.8735145}
   m_Direction: 0
+--- !u!114 &194633974696284622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5748614628262477058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf260e756b31694888e4cbacac41e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls: []
+  alwaysActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5192467702155907208}
+        m_TargetAssemblyTypeName: DoInstantiate, Assembly-CSharp
+        m_MethodName: LetsInstantiate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  unIgnoreActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194633974696284622}
+        m_TargetAssemblyTypeName: TriggerActions, Assembly-CSharp
+        m_MethodName: DestroyItself
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tagsToIgnore:
+  - Enemy
 --- !u!1 &6082580424002065216
 GameObject:
   m_ObjectHideFlags: 0

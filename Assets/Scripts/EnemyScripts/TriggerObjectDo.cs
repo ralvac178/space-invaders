@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyTriggerDo : TriggerActions
+public class TriggerObjectDo : TriggerActions
 {
     [SerializeField] private UnityEvent alwaysActions;
     [SerializeField] public UnityEvent unIgnoreActions;

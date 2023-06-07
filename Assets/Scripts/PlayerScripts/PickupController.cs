@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PickupController : MonoBehaviour
 {
+    public PickupConfig pickupConfig;
     public void OnPickedUp()
     {
         GameManager.instance.OnPlayerPickUp(this);
+        Debug.Log("Taken Pickup");
     }
 }
