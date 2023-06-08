@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private int score;
+    public int livesPlayer = 3;
 
     [SerializeField] private PlayerController playerController;
 
@@ -27,7 +28,26 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerPickUp(PickupController pickup)
     {
-        Debug.Log("Pickup taken");
         playerController.OnPlayerPickUp(pickup.pickupConfig.type);
+    }
+
+    public void SubLives()
+    {
+        
+        if (livesPlayer > 1)
+        {
+            Debug.Log(livesPlayer);
+            livesPlayer--;
+            PlayerDied();
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
     }
 }

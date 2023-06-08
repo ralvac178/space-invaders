@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c908a57daf45d4e8c6e55b5ac791e3, type: 3}
-  m_Name: Player Config
+  m_Script: {fileID: 11500000, guid: 1e292bd9199bf5744ab0147d90b21657, type: 3}
+  m_Name: PickupShield
   m_EditorClassIdentifier: 
-  powerConfigs:
-  - cannonAmount: 1
-  - cannonAmount: 3
+  type: 2
+  score: 120

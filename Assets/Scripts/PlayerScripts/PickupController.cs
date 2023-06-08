@@ -8,6 +8,5 @@ public class PickupController : MonoBehaviour
     public void OnPickedUp()
     {
         GameManager.instance.OnPlayerPickUp(this);
-        Debug.Log("Taken Pickup");
     }
 }

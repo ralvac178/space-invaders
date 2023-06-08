@@ -19,3 +19,4 @@ MonoBehaviour:
   shootCadenceTopLimit: 0
   shootInitialWaitTime: 0
   scoreWhenIsDestroyed: 50
+  pickUpChance: 0.1

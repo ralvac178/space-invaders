@@ -6,6 +6,7 @@ using System;
 [CreateAssetMenu(fileName = "New Player Config", menuName = "ScriptableObjects/PlayerConfig", order = 0)]
 public class PlayerConfig : ScriptableObject
 {
+
     [Serializable]
     public class PowerConfig
     {
@@ -17,19 +18,23 @@ public class PlayerConfig : ScriptableObject
 
     public PowerConfig GetPowerConfig(int powerValue)
     {
-        //foreach (var config in powerConfigs)
-        //{
-        //    if (config.powerValue >= powerValue)
-        //    {
-        //        return config;
-        //    }
-        //}
-
-        if (powerValue % 15 == 0)
+        
+        if (powerValue > 14)
         {
-            powerConfigs.Reverse();
+            if (powerValue % 15 == 0)
+            {
+                powerConfigs.Reverse();
+            }
         }
 
         return powerConfigs[0];
+    }
+
+    public void SortListCannonAmount()
+    {
+        if (powerConfigs[0].cannonAmount == 3)
+        {
+            powerConfigs.Reverse();
+        }
     }
 }

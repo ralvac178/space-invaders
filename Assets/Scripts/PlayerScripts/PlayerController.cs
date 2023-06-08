@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
         if (gameObject.tag.Equals("Player"))
         {
             InputProvider.OnHasShoot += OnHasShoot;
@@ -44,16 +43,32 @@ public class PlayerController : MonoBehaviour
         {
             InputProvider.OnHasShoot -= OnHasShoot;
         }
+
+        playerConfig.SortListCannonAmount();
     }
 
-    public void OnPlayerDie()
+    public void OnSubLives()
     {
-        GameManager.instance.PlayerDied();
+        if (!specialControllers.shielded)
+        {
+            GameManager.instance.SubLives();
+        }
+        else
+        {
+            specialControllers.shielded = false;
+            specialControllers.OnShieldDestroyed();
+        }
+        
     }
 
     public void OnPlayerPickUp(PickupType pickupType)
     {
-        shooters.Reverse();
-        specialControllers.OnPlayerPickUp(pickupType);     
+        bool enReverse = shooters[0].name.Contains("Lasser");
+        if (!enReverse)
+        {
+            shooters.Reverse();   
+        }
+        
+        specialControllers.OnPlayerPickUp(pickupType);
     }
 }
