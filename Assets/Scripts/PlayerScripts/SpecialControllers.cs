@@ -13,6 +13,8 @@ public class SpecialControllers : MonoBehaviour
         if (pickup == PickupType.Lasser)
         {
             StopAllCoroutines();
+            GameManager.instance.fillBar.sprite = GameManager.instance.fillBarYellow;
+            GameManager.instance.numberBullets.color = Color.green;
             StartCoroutine(nameof(GetBackInitShooter));
         }
         else
@@ -25,6 +27,8 @@ public class SpecialControllers : MonoBehaviour
     public IEnumerator GetBackInitShooter()
     {
         yield return new WaitForSecondsRealtime(15);
+        GameManager.instance.fillBar.sprite = GameManager.instance.fillBarBlue;
+        GameManager.instance.numberBullets.color = Color.white;
         playerController.shooters.Reverse();
     }
 

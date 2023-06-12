@@ -17,6 +17,13 @@ public class GameManager : MonoBehaviour
     private RectTransform rectTransformLives;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Slider shooterBar;
+
+    private float fillValue = 0;
+
+    public TextMeshProUGUI numberBullets;
+    public Sprite fillBarBlue, fillBarYellow;
+    public Image fillBar;
 
     private void Awake()
     {
@@ -28,6 +35,8 @@ public class GameManager : MonoBehaviour
         rectTransformLives = lives.GetComponent<RectTransform>();
         rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer, 52);
         scoreText.text = score.ToString();
+
+        shooterBar.value = playerController.powerLevel;
     }
 
     public void UpdateScoreAndPower(int addScore)
@@ -35,6 +44,17 @@ public class GameManager : MonoBehaviour
         score += addScore;
         playerController.AddToPower(1);
         scoreText.text = score.ToString();
+
+        if (playerController.powerLevel < 15)
+        {
+            fillValue = playerController.powerLevel;
+        }
+        else
+        {
+            fillValue = playerController.powerLevel % 15;
+        }
+
+        shooterBar.value = fillValue;
     }
 
     public void PlayerDied()
