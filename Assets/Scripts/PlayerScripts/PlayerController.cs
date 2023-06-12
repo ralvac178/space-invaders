@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public int powerLevel;
     private int cannonUnlocked = 1;
-
+    
     private void Start()
     {
         if (gameObject.tag.Equals("Player"))

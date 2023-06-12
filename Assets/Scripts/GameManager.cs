@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,15 +12,29 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerController playerController;
 
+    // UI fields
+    [SerializeField] private Image lives;
+    private RectTransform rectTransformLives;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        rectTransformLives = lives.GetComponent<RectTransform>();
+        rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer, 52);
+        scoreText.text = score.ToString();
     }
 
     public void UpdateScoreAndPower(int addScore)
     {
         score += addScore;
         playerController.AddToPower(1);
+        scoreText.text = score.ToString();
     }
 
     public void PlayerDied()
@@ -44,6 +60,8 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer ,52);
     }
 
     public void GameOver()
