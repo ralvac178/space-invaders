@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public int livesPlayer = 3;
 
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private SpriteRenderer playerSpriteRenderer;
+    [SerializeField] private GameObject player;
 
     // UI fields
     [SerializeField] private Image lives;
@@ -24,6 +26,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI numberBullets;
     public Sprite fillBarBlue, fillBarYellow;
     public Image fillBar;
+
+    private int hopeScore = 2500;
+
+    //Sounds
+    public AudioSource audioSource;
+    [SerializeField]
+    private AudioClip powerUpSound, diePlayerSound, destroyEnemySound, revivalSound, diedSound, newLiveSound;
 
     private void Awake()
     {
@@ -54,17 +63,31 @@ public class GameManager : MonoBehaviour
             fillValue = playerController.powerLevel % 15;
         }
 
+        if (score > hopeScore && score < hopeScore + 150)
+        {
+            hopeScore += 5000;
+            AddLives();
+            audioSource.PlayOneShot(newLiveSound);
+        }
+
         shooterBar.value = fillValue;
+        audioSource.PlayOneShot(destroyEnemySound);
     }
 
     public void PlayerDied()
     {
-        Debug.Log("****** PLAYER DIED ******");
+        audioSource.PlayOneShot(diePlayerSound);
+        //Restart player
+        //Use IEnumerator...
+        StartCoroutine(nameof(RestartPlayer));
     }
 
     public void OnPlayerPickUp(PickupController pickup)
     {
         playerController.OnPlayerPickUp(pickup.pickupConfig.type);
+        audioSource.PlayOneShot(powerUpSound);
+        score += pickup.pickupConfig.score;
+        scoreText.text = score.ToString();
     }
 
     public void SubLives()
@@ -84,8 +107,31 @@ public class GameManager : MonoBehaviour
         rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer ,52);
     }
 
+    public void AddLives()
+    {
+        livesPlayer++;
+        rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer, 52);
+    }
+
     public void GameOver()
     {
         Debug.Log("Game Over");
+    }
+
+    public IEnumerator RestartPlayer()
+    {
+        audioSource.PlayOneShot(diedSound);
+        playerSpriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.7f);
+        playerSpriteRenderer.enabled = true;
+        playerSpriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        player.transform.position = new Vector3(0, -4.1f, 0);
+        Collider2D playerCollider = player.GetComponent<Collider2D>();
+        playerCollider.enabled = false;
+        yield return new WaitForSeconds(4);
+        audioSource.PlayOneShot(revivalSound);     
+        playerSpriteRenderer.color = new Color(1, 1, 1, 1);
+        playerCollider.enabled = true;
+        StopCoroutine(RestartPlayer());
     }
 }

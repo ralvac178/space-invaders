@@ -17,10 +17,14 @@ public class SpecialControllers : MonoBehaviour
             GameManager.instance.numberBullets.color = Color.green;
             StartCoroutine(nameof(GetBackInitShooter));
         }
-        else
+        else if (pickup == PickupType.Shield)
         {
             shield.SetActive(true);
             shielded = true;
+        }
+        else
+        {
+            GameManager.instance.AddLives();
         }
     }
 

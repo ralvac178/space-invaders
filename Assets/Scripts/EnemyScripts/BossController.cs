@@ -7,6 +7,10 @@ public class BossController : MonoBehaviour
     [SerializeField] private EnemyConfig enemyConfig;
 
     private ShooterScript[] shooters;
+
+    //Sounds
+    [SerializeField] private AudioClip enemyBulletSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,7 @@ public class BossController : MonoBehaviour
                 if (shooter != null)
                 {
                     shooter.HasShoot();
+                    GameManager.instance.audioSource.PlayOneShot(enemyBulletSound);
                 }
             }
 

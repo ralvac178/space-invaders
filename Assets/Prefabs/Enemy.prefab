@@ -264,6 +264,7 @@ MonoBehaviour:
   enemyConfig: {fileID: 11400000, guid: 479b52307908ad8458a9fb48d4d790a2, type: 2}
   spriteRenderer: {fileID: 1775562785437298379}
   instantiator: {fileID: 7349022243786562234}
+  enemyBulletSound: {fileID: 8300000, guid: 881e3f52c86c94f26a60718d35627cd8, type: 3}
 --- !u!114 &-4986248100038412990
 MonoBehaviour:
   m_ObjectHideFlags: 0

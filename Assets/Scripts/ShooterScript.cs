@@ -14,6 +14,7 @@ public class ShooterScript : MonoBehaviour
         if (isEnable)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
+
         }       
     }
 

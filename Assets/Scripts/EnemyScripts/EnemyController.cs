@@ -10,6 +10,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private DoInstantiate instantiator;
 
     private ShooterScript[] shooters;
+
+    //Sounds
+    [SerializeField] private AudioClip enemyBulletSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +58,7 @@ public class EnemyController : MonoBehaviour
                 if (shooter != null)
                 {
                     shooter.HasShoot();
+                    GameManager.instance.audioSource.PlayOneShot(enemyBulletSound);
                 }
             }
             yield return new WaitForSeconds(enemyConfig.shootCadence);

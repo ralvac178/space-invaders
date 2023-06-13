@@ -8,6 +8,8 @@ public class HealthController : MonoBehaviour
     public int health;
     [SerializeField] private UnityEvent onZeroHealthAction;
 
+    [SerializeField] private AudioClip bossDamageSound;
+
     public void OnDamage(int damageValue)
     {
         health -= damageValue;
@@ -16,6 +18,9 @@ public class HealthController : MonoBehaviour
         {
             OnZeroHealth();
         }
+
+        GameManager.instance.audioSource.PlayOneShot(bossDamageSound);
+        GameManager.instance.UpdateScoreAndPower(100);
     }
 
     public void OnZeroHealth()

@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour
 
     public int powerLevel;
     private int cannonUnlocked = 1;
-    
+
+    //Sound
+    [SerializeField] private AudioClip shootSound, lasserSound;
+
     private void Start()
     {
         if (gameObject.tag.Equals("Player"))
@@ -35,6 +38,15 @@ public class PlayerController : MonoBehaviour
         {
             var shooter = shooters[i];
             shooter.HasShoot();
+        }
+
+        if (shooters[0].name.Contains("Lasser"))
+        {
+            GameManager.instance.audioSource.PlayOneShot(lasserSound);
+        }
+        else
+        {
+            GameManager.instance.audioSource.PlayOneShot(shootSound);
         }
     }
 
@@ -65,7 +77,7 @@ public class PlayerController : MonoBehaviour
     public void OnPlayerPickUp(PickupType pickupType)
     {
         bool enReverse = shooters[0].name.Contains("Lasser");
-        if (!enReverse)
+        if (!enReverse && pickupType == PickupType.Lasser)
         {
             shooters.Reverse();   
         }

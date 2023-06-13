@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PickupShield
   m_EditorClassIdentifier: 
   type: 2
-  score: 120
+  score: 50

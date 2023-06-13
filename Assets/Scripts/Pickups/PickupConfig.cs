@@ -6,7 +6,8 @@ public enum PickupType
 {
     Name,
     Lasser,
-    Shield
+    Shield,
+    Lives
 }
 
 [CreateAssetMenu(fileName = "Pickup", menuName = "Pickup/Player", order = 1)]

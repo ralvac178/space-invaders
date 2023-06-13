@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8480af07a222141ae82b81d7abbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 60
   onZeroHealthAction:
     m_PersistentCalls:
       m_Calls:
@@ -331,6 +331,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bossDamageSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!1 &1971342616491830056
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8480af07a222141ae82b81d7abbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 60
   onZeroHealthAction:
     m_PersistentCalls:
       m_Calls:
@@ -630,6 +631,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bossDamageSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!1 &4791556604739272819
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +903,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bossDamageSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!114 &636417062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,7 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8480af07a222141ae82b81d7abbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 40
   onZeroHealthAction:
     m_PersistentCalls:
       m_Calls:
@@ -1134,6 +1137,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bossDamageSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!114 &3396675291161875492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,7 +1547,7 @@ PrefabInstance:
       objectReference: {fileID: 5748614628262477058, guid: a1845aec25725b44a8b6d06647a8c124, type: 3}
     - target: {fileID: 6948334692469965542, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: isEnable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948334692469965543, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: m_RootOrder
@@ -1614,6 +1618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 7bcec5e8642955d4a89ae40d012482d4, type: 2}
+  enemyBulletSound: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
 --- !u!1001 &823712535236860405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1631,7 +1636,7 @@ PrefabInstance:
       objectReference: {fileID: 5748614628262477058, guid: 51f16c7bb8b864c4691f05e95c75d113, type: 3}
     - target: {fileID: 6948334692469965542, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: isEnable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948334692469965543, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: m_RootOrder
@@ -1702,6 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 752bd184eb03d1a42b5b57220fbf589c, type: 2}
+  enemyBulletSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!1001 &1134324305821320189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1719,7 +1725,7 @@ PrefabInstance:
       objectReference: {fileID: 5748614628262477058, guid: 51f16c7bb8b864c4691f05e95c75d113, type: 3}
     - target: {fileID: 6948334692469965542, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: isEnable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948334692469965543, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: m_RootOrder
@@ -1790,6 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 680c0e754abced74aa16834cb11d55ba, type: 2}
+  enemyBulletSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!1001 &4224079396301561111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1807,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 5748614628262477058, guid: 51f16c7bb8b864c4691f05e95c75d113, type: 3}
     - target: {fileID: 6948334692469965542, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: isEnable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948334692469965543, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: m_RootOrder
@@ -1878,6 +1885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 680c0e754abced74aa16834cb11d55ba, type: 2}
+  enemyBulletSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!1001 &5409735480446472247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1895,7 +1903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1240438158084072157, guid: 2ff8084d4d0b5104ea77c321a67ec8ab, type: 3}
       propertyPath: isEnable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2352375857513555898, guid: 2ff8084d4d0b5104ea77c321a67ec8ab, type: 3}
       propertyPath: healthController
@@ -2041,6 +2049,10 @@ PrefabInstance:
       propertyPath: unIgnoreActions.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8310188999558924969, guid: 2ff8084d4d0b5104ea77c321a67ec8ab, type: 3}
+      propertyPath: enemyBulletSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
     - target: {fileID: 9042492151050240928, guid: 2ff8084d4d0b5104ea77c321a67ec8ab, type: 3}
       propertyPath: m_Size.y
       value: 0.6214189
@@ -2073,7 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8480af07a222141ae82b81d7abbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 60
   onZeroHealthAction:
     m_PersistentCalls:
       m_Calls:
@@ -2101,6 +2113,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bossDamageSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!1 &4765974351556306946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 664027688028354613, guid: 2ff8084d4d0b5104ea77c321a67ec8ab, type: 3}
@@ -2168,7 +2181,7 @@ PrefabInstance:
       objectReference: {fileID: 5748614628262477058, guid: a1845aec25725b44a8b6d06647a8c124, type: 3}
     - target: {fileID: 6948334692469965542, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: isEnable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948334692469965543, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
       propertyPath: m_RootOrder
@@ -2234,6 +2247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 7bcec5e8642955d4a89ae40d012482d4, type: 2}
+  enemyBulletSound: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
 --- !u!4 &1279486768522298782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6948334692469965543, guid: ee2dd3d94e2867e48a03526a86bd4793, type: 3}
