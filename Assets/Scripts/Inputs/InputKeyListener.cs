@@ -21,6 +21,11 @@ public class InputKeyListener : MonoBehaviour, IShootable, IMovable
         InputProvider.Shoot();
     }
 
+    public void Pause()
+    {
+        InputProvider.PauseGame();
+    }
+
     public void Move(Vector3 direction)
     {
         InputProvider.Move(direction);
@@ -32,6 +37,11 @@ public class InputKeyListener : MonoBehaviour, IShootable, IMovable
         if (Input.GetButtonDown("Shoot"))
         {
             Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
         }
 
         Move(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0));

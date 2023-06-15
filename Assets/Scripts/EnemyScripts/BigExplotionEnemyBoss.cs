@@ -26,6 +26,7 @@ public class BigExplotionEnemyBoss : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
+        GameManager.instance.GameOver(true);
         StopCoroutine(RunExplotions());
     }
 

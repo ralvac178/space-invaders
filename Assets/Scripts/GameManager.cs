@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,17 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     [SerializeField]
     private AudioClip powerUpSound, diePlayerSound, destroyEnemySound, revivalSound, diedSound, newLiveSound;
+    [SerializeField] private AudioSource audioSourceMainCamera;
+
+    [SerializeField] private AudioClip gameOverSound, winSound;
+
+    //Game Over Menu
+    [SerializeField] private GameObject gameOverMenu, gameUI;
+    [SerializeField] private TextMeshProUGUI gameOverMenuScoreText, gameOverMenuTitleText;
+
+    //Paused Menu
+    [SerializeField]
+    private GameObject pausedMenu;
 
     private void Awake()
     {
@@ -46,6 +58,14 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
 
         shooterBar.value = playerController.powerLevel;
+
+        InputProvider.OnHasPauseGame += PauseGame;
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausedMenu.SetActive(true);
     }
 
     public void UpdateScoreAndPower(int addScore)
@@ -101,7 +121,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            GameOver();
+            livesPlayer--;
+            audioSource.PlayOneShot(diePlayerSound);
+            player.SetActive(false);
+            GameOver(false);
         }
 
         rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer ,52);
@@ -113,9 +136,30 @@ public class GameManager : MonoBehaviour
         rectTransformLives.sizeDelta = new Vector2(58 * livesPlayer, 52);
     }
 
-    public void GameOver()
+    public void GameOver(bool win)
     {
         Debug.Log("Game Over");
+        gameOverMenu.SetActive(true);
+        gameUI.SetActive(false);
+        audioSourceMainCamera.clip = gameOverSound;
+        audioSourceMainCamera.loop = false;
+        audioSourceMainCamera.Play();
+        gameOverMenuScoreText.text = $"x {score}";
+        if (win)
+        {
+            audioSourceMainCamera.clip = winSound;
+            audioSourceMainCamera.loop = false;
+            audioSourceMainCamera.Play();
+            gameOverMenuTitleText.text = $"Mission Complete";
+        }
+        else
+        {
+            audioSourceMainCamera.clip = gameOverSound;
+            audioSourceMainCamera.loop = false;
+            audioSourceMainCamera.Play();
+            gameOverMenuTitleText.text = $"Game Over";
+        }
+        
     }
 
     public IEnumerator RestartPlayer()
@@ -133,5 +177,10 @@ public class GameManager : MonoBehaviour
         playerSpriteRenderer.color = new Color(1, 1, 1, 1);
         playerCollider.enabled = true;
         StopCoroutine(RestartPlayer());
+    }
+
+    private void OnDisable()
+    {
+        InputProvider.OnHasPauseGame -= PauseGame;
     }
 }

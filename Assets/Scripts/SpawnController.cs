@@ -13,7 +13,7 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private BossBackGroundSong bossBackGroundSongScript;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         StartCoroutine(nameof(SpawnEnemyCorroutine));
         StartCoroutine(nameof(LivesSpawmer));
@@ -70,5 +70,10 @@ public class SpawnController : MonoBehaviour
         }
 
         StopCoroutine(LivesSpawmer());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }
